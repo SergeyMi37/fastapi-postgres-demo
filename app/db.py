@@ -5,6 +5,7 @@ from sqlalchemy.ext.declarative import DeclarativeMeta, declarative_base
 from sqlalchemy.orm import sessionmaker
 
 DATABASE_URL = os.environ.get("DATABASE_URL")
+
 if not DATABASE_URL:
     DATABASE_URL = "postgresql+psycopg2://postgres:postgres@db:5432/testdemo"
 
