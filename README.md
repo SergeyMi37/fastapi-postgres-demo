@@ -1,6 +1,6 @@
-# FastAPI demo with InterSystems IRIS using SQLAlchemy
+# FastAPI demo with Postgres using SQLAlchemy
 
-This is a simplest demo of FastAPI on IRIS using SQLAlchemy
+This is a simplest demo of FastAPI on Postgres using SQLAlchemy
 
 ## Using
 
