@@ -54,6 +54,14 @@ postgres-# \q
 pip install -r requirements.txt
 ```
 
+## Создать .env файл на основе env.sample
+
+
+## Запустить миграции
+```bash
+alembic upgrade head
+```
+
 ## Необходимо перейти в каталог бэкенд:  
 ```bash
 uvicorn app.main:app --workers 1 --host 0.0.0.0 --port 8000 --env-file .env
