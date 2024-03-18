@@ -70,3 +70,72 @@ uvicorn app.main:app --workers 1 --host 0.0.0.0 --port 8000 --env-file .env
 ```
 python -m uvicorn app.main:app --workers 1 --host 0.0.0.0 --port 8000 --env-file .env
 ```
+
+## Создать в директории frontend/ файл .env на основе env.example
+И прописать актуальные параметры доступа к эндпоинтам Swagger
+Если нужно подключаться к эндпоинтам Swagger контейнера, то менять настройки не надо
+
+
+## Загрузить образы и собрать контейнеры
+ Если ошибка: services.flask.depends_on contains an invalid type, it should be an array? 
+ то нужно обновить docker-compose до версии 1.29.2
+ sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+  
+```
+docker-compose build --no-cache
+```
+
+## Запустить контейнеры
+```
+docker-compose up -d
+```
+## Смотреть состояние контейнеров
+```
+docker-compose ps
+```
+## Смотреть протоколы
+```
+docker-compose logs
+```
+## Остановить контейнеры
+```
+docker-compose stop
+```
+## Убить контейнеры
+```
+docker-compose kill
+```
+### stoped and clean all containers
+```
+docker stop $(docker ps -a -q) &&  docker rm $(docker ps -a -q) && docker system prune -f
+```
+### rmi images
+```
+docker rmi $(docker images -a -q) && docker system prune -f
+```
+
+
+# Работа с репозиторием
+
+## Клонировать ранее созданную ветку из репо
+```
+git clone https://git.lab.nexus/ctz/lab/rating/inspection.git -b msw-dockerize
+```
+
+## Основные команды сохранения изменений
+```
+git add *
+git commit -am "комментарий"
+git push
+```
+## Позволяет на время архивировать (или «отложить») изменения, сделанные в рабочей копии, чтобы вы могли применить их позже
+```
+git stash
+git stash pop
+git stash drop
+```
+
+## Получить последнюю версию из удаленного репозитория
+```
+git pull
+```
