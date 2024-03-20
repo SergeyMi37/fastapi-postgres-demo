@@ -54,6 +54,7 @@ async def read_todos(skip: int = 0, limit: int = 100, session=Depends(get_sessio
 async def create_todo(todo: schemas.TodoCreate, session=Depends(get_session)):
     return crud.create_todo(db=session, todo=todo)
 
+"""
 # https://www.gormanalysis.com/blog/building-a-simple-crud-application-with-fastapi/
 # https://github.com/ben519/todooo/blob/master/models.py
 @app.post("/todo_add", response_model=schemas.Todo, status_code=status.HTTP_201_CREATED)
@@ -70,7 +71,7 @@ def create_todo_new(todo: schemas.TodoCreate, session: Session = Depends(get_ses
     # return the todo object
     return tododb
 
-"""
+
 @app.post("/todo", response_model=schemas.ToDo, status_code=status.HTTP_201_CREATED)
 def create_todo(todo: schemas.ToDoCreate, session: Session = Depends(get_session)):
 
